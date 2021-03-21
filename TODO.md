@@ -1,0 +1,2 @@
+- fix gateway
+- add admin-server to discovery registry if it is possible

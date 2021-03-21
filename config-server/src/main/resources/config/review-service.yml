@@ -6,6 +6,5 @@ spring:
   data:
     mongodb:
       host: localhost
-      username: user
-      password: user
+      database: reviewDB
       port: 27017

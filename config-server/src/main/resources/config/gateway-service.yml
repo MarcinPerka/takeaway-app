@@ -1,8 +1,10 @@
 server:
-  port: 8060
+  port: 8080
 ribbon:
   ReadTimeout: 20000
   ConnectTimeout: 20000
+  eureka:
+    enabled: true
 zuul:
   ignoredServices: '*'
   host:

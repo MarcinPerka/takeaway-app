@@ -67,6 +67,7 @@
         <module>auth-service</module>
         <module>review-service</module>
         <module>admin-server</module>
+        <module>gateway-service</module>
     </modules>
 
 </project>

@@ -1,4 +1,4 @@
-package com.archu.restaurantservice;
+package com.archu.reviewservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,10 +10,10 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableDiscoveryClient
 @EnableMongoAuditing
 @EnableMongoRepositories
-public class RestaurantServiceApplication {
+public class ReviewServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RestaurantServiceApplication.class, args);
+        SpringApplication.run(ReviewServiceApplication.class, args);
     }
 
 }

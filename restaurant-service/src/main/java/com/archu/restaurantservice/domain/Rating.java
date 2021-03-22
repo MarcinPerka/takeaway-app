@@ -1,11 +1,17 @@
 package com.archu.restaurantservice.domain;
 
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
+
+import java.math.BigDecimal;
 
 @Getter
 @Builder
+@EqualsAndHashCode
+@ToString
 public class Rating {
     private final int votes;
-    private final double score;
+    private final BigDecimal score;
 }

@@ -74,6 +74,8 @@
         <module>review-service</module>
         <module>admin-server</module>
         <module>gateway-service</module>
+        <module>common-beans</module>
+        <module>common-dtos</module>
     </modules>
 
 </project>

@@ -7,14 +7,16 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Document(collection = "restaurants")
 @Getter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@EqualsAndHashCode
+@ToString
 public class Restaurant {
 
     @Id
@@ -22,7 +24,9 @@ public class Restaurant {
 
     private final String name;
 
-    private final List<Cuisine> cuisineTypes = new ArrayList<>();
+    private final Set<Cuisine> cuisineTypes = new HashSet<>();
+
+    private final Set<Shipping> shippingTypes = new HashSet<>();
 
     private final Location location;
 

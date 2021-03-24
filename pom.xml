@@ -69,13 +69,14 @@
         <module>config-server</module>
         <module>service-registry</module>
         <module>restaurant-service</module>
+        <module>restaurant-service-api</module>
         <module>customer-service</module>
         <module>auth-service</module>
         <module>review-service</module>
         <module>admin-server</module>
         <module>gateway-service</module>
-        <module>common-beans</module>
-        <module>common-dtos</module>
+        <module>takeaway-common</module>
+        <module>takeaway-common-spring</module>
     </modules>
 
 </project>

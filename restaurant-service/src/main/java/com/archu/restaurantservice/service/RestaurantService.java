@@ -1,14 +1,14 @@
 package com.archu.restaurantservice.service;
 
-import com.archu.restaurantservice.domain.Restaurant;
+import com.archu.restaurantserviceapi.dto.RestaurantDTO;
 
 import java.util.Optional;
 
 public interface RestaurantService {
 
-    Optional<Restaurant> findRestaurantById(final String id);
+    Optional<RestaurantDTO> findRestaurantById(final String id);
 
-    Restaurant createRestaurant(final Restaurant restaurant);
+    RestaurantDTO createRestaurant(final RestaurantDTO restaurantDTO);
 
-    void updateRestaurant(final String id, final Restaurant restaurant);
+    RestaurantDTO updateRestaurant(final String id, final RestaurantDTO restaurantDTO);
 }

@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @Slf4j
 @RequiredArgsConstructor
@@ -20,7 +22,7 @@ public class ReviewController {
     }
 
     @GetMapping
-    public Iterable<ReviewDTO> getReviewsById(@RequestParam final String author) {
+    public List<ReviewDTO> getReviewsById(@RequestParam final String author) {
         return reviewService.findReviewsByAuthor(author);
     }
 

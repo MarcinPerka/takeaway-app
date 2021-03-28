@@ -73,6 +73,7 @@
         <module>customer-service</module>
         <module>auth-service</module>
         <module>review-service</module>
+        <module>review-service-api</module>
         <module>admin-server</module>
         <module>gateway-service</module>
         <module>takeaway-common</module>

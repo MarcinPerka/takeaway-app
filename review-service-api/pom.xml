@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>restaurant-service-api</artifactId>
+    <artifactId>review-service-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>restaurant-service-api</name>
+    <name>review-service-api</name>
     <packaging>jar</packaging>
 
     <parent>
@@ -42,7 +42,5 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
-
-
 
 </project>

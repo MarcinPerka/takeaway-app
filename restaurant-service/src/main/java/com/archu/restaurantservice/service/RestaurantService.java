@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface RestaurantService {
 
-    Optional<RestaurantDTO> findRestaurantById(final String id);
+    RestaurantDTO findRestaurantById(final String id);
 
     RestaurantDTO createRestaurant(final RestaurantDTO restaurantDTO);
 

@@ -1,16 +1,16 @@
 package com.archu.reviewservice.service;
 
-import com.archu.reviewservice.domain.Review;
+import com.archu.reviewserviceapi.dto.ReviewDTO;
 
-import java.util.Optional;
+import java.util.List;
 
 public interface ReviewService {
 
-    Optional<Review> findReviewById(final String id);
+    ReviewDTO findReviewById(final String id);
 
-    Iterable<Review> findReviewsByAuthor(final String author);
+    List<ReviewDTO> findReviewsByAuthor(final String author);
 
-    Review createReview(final Review review);
+    ReviewDTO createReview(final ReviewDTO reviewDTO);
 
-    void updateReview(final String id, final Review review);
+    ReviewDTO updateReview(final String id, final ReviewDTO reviewDTO);
 }

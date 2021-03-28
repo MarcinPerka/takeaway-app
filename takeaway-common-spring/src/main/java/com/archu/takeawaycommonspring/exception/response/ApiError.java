@@ -50,31 +50,31 @@ public class ApiError {
      */
     private final List<BaseApiSubError> subErrors = new ArrayList<>();
 
-    public static ApiError create(HttpStatus httpStatus, String message, String code) {
+    public static ApiError create(final HttpStatus httpStatus, final String message, final String code) {
         return new ApiError(httpStatus, message, code, null, null);
     }
 
-    public static ApiError create(HttpStatus httpStatus, String message, String code, String details) {
+    public static ApiError create(final HttpStatus httpStatus, final String message, final String code, final String details) {
         return new ApiError(httpStatus, message, code, null, details);
     }
 
-    public static ApiError create(HttpStatus httpStatus, String message, String code, String userMessage, String details) {
+    public static ApiError create(final HttpStatus httpStatus, final String message, final String code, final String userMessage, final String details) {
         return new ApiError(httpStatus, message, code, userMessage, details);
     }
 
-    private void addSubError(BaseApiSubError subError) {
+    private void addSubError(final BaseApiSubError subError) {
         subErrors.add(subError);
     }
 
-    private void addValidationError(String object, String field, Object rejectedValue, String message) {
+    private void addValidationError(final String object, final String field, final Object rejectedValue, final String message) {
         addSubError(ApiValidationError.create(object, field, rejectedValue, message));
     }
 
-    private void addValidationError(String object, String message) {
+    private void addValidationError(final String object, final String message) {
         addSubError(ApiValidationError.create(object, message));
     }
 
-    private void addValidationError(FieldError fieldError) {
+    private void addValidationError(final FieldError fieldError) {
         this.addValidationError(
                 fieldError.getObjectName(),
                 fieldError.getField(),
@@ -82,17 +82,17 @@ public class ApiError {
                 fieldError.getDefaultMessage());
     }
 
-    public void addValidationErrors(List<FieldError> fieldErrors) {
+    public void addValidationErrors(final List<FieldError> fieldErrors) {
         fieldErrors.forEach(this::addValidationError);
     }
 
-    private void addValidationError(ObjectError objectError) {
+    private void addValidationError(final ObjectError objectError) {
         this.addValidationError(
                 objectError.getObjectName(),
                 objectError.getDefaultMessage());
     }
 
-    public void addValidationError(List<ObjectError> globalErrors) {
+    public void addValidationError(final List<ObjectError> globalErrors) {
         globalErrors.forEach(this::addValidationError);
     }
 }

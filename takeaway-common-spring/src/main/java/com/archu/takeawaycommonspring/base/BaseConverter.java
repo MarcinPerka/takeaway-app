@@ -6,11 +6,11 @@ import java.util.stream.Collectors;
 
 public interface BaseConverter<D extends BaseDTO, E extends BaseEntity> {
 
-    E createFrom(D dto);
+    E createFrom(final D dto);
 
-    D createFrom(E entity);
+    D createFrom(final E entity);
 
-    E updateEntity(E entity, D dto);
+    E updateEntity(final E entity, final D dto);
 
     default List<D> createFromEntities(final Collection<E> entities) {
         return entities.stream()

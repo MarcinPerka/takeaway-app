@@ -10,12 +10,12 @@ import java.util.Optional;
 public interface RestaurantClient {
 
     @GetMapping(path = "/{id}")
-    Optional<RestaurantDTO> getRestaurantById(@PathVariable String id);
+    Optional<RestaurantDTO> getRestaurantById(@PathVariable final String id);
 
     @PutMapping(path = "/{id}")
-    void updateRestaurant(@PathVariable String id, @RequestBody RestaurantDTO restaurant);
+    void updateRestaurant(@PathVariable String id, @RequestBody final RestaurantDTO restaurant);
 
     @PostMapping
-    RestaurantDTO createRestaurant(@RequestBody RestaurantDTO restaurant);
+    RestaurantDTO createRestaurant(@RequestBody final RestaurantDTO restaurant);
 
 }

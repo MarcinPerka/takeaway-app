@@ -3,11 +3,13 @@ package com.archu.restaurantservice.converter;
 import com.archu.restaurantservice.domain.Restaurant;
 import com.archu.restaurantserviceapi.dto.RestaurantDTO;
 import com.archu.takeawaycommonspring.base.BaseConverter;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RestaurantConverter implements BaseConverter<RestaurantDTO, Restaurant> {
 
     @Override
-    public Restaurant createFrom(RestaurantDTO dto) {
+    public Restaurant createFrom(final RestaurantDTO dto) {
         return Restaurant.builder()
                 .name(dto.getName())
                 .menu(dto.getMenu())
@@ -18,7 +20,7 @@ public class RestaurantConverter implements BaseConverter<RestaurantDTO, Restaur
     }
 
     @Override
-    public RestaurantDTO createFrom(Restaurant entity) {
+    public RestaurantDTO createFrom(final Restaurant entity) {
         return RestaurantDTO.builder()
                 .id(entity.getId())
                 .version(entity.getVersion())
@@ -31,7 +33,7 @@ public class RestaurantConverter implements BaseConverter<RestaurantDTO, Restaur
     }
 
     @Override
-    public Restaurant updateEntity(Restaurant entity, RestaurantDTO dto) {
+    public Restaurant updateEntity(final Restaurant entity, final RestaurantDTO dto) {
         return entity.toBuilder()
                 .version(dto.getVersion())
                 .name(dto.getName())

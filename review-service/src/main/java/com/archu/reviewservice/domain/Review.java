@@ -1,24 +1,18 @@
 package com.archu.reviewservice.domain;
 
+import com.archu.takeawaycommonspring.base.BaseEntity;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.time.LocalDateTime;
 
 @Document(collection = "reviews")
 @Getter
-@Builder
+@SuperBuilder(toBuilder = true)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @ToString
-public class Review {
-
-    @Id
-    private final String id;
+public class Review extends BaseEntity {
 
     private final String author;
 
@@ -26,11 +20,6 @@ public class Review {
 
     private final int rating;
 
-    private final Restaurant restaurant;
+    private final String restaurantId;
 
-    @CreatedDate
-    private final LocalDateTime createdAt;
-
-    @LastModifiedDate
-    private final LocalDateTime modifiedAt;
 }

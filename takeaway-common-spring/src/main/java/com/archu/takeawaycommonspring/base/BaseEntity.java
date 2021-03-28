@@ -10,11 +10,9 @@ import org.springframework.data.annotation.Version;
 import java.time.Instant;
 
 @Getter
-@SuperBuilder
+@SuperBuilder(toBuilder = true)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-@EqualsAndHashCode
-@ToString
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 public abstract class BaseEntity {
 
     @Id

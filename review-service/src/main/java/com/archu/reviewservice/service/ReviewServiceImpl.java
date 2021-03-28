@@ -1,12 +1,15 @@
 package com.archu.reviewservice.service;
 
-import com.archu.reviewservice.domain.Review;
+import com.archu.reviewservice.converter.ReviewConverter;
 import com.archu.reviewservice.repository.ReviewRepository;
+import com.archu.reviewserviceapi.dto.ReviewDTO;
+import com.archu.takeawaycommonspring.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -15,23 +18,29 @@ public class ReviewServiceImpl implements ReviewService {
 
     private final ReviewRepository reviewRepository;
 
+    private final ReviewConverter reviewConverter;
+
     @Override
-    public Optional<Review> findReviewById(String id) {
-        return reviewRepository.findById(id);
+    public ReviewDTO findReviewById(final String id) {
+        return reviewRepository.findById(id).map(reviewConverter::createFrom)
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Restaurant with id %s not found", id)));
     }
 
     @Override
-    public Iterable<Review> findReviewsByAuthor(String author) {
-        return reviewRepository.findReviewsByAuthor(author);
+    public List<ReviewDTO> findReviewsByAuthor(final String author) {
+        return reviewRepository.findReviewsByAuthor(author).stream().map(reviewConverter::createFrom).collect(Collectors.toList());
     }
 
     @Override
-    public Review createReview(Review review) {
-        return null;
+    public ReviewDTO createReview(final ReviewDTO reviewDTO) {
+        var review = reviewConverter.createFrom(reviewDTO);
+        return reviewConverter.createFrom(reviewRepository.save(review));
     }
 
     @Override
-    public void updateReview(String id, Review review) {
-
+    public ReviewDTO updateReview(final String id, final ReviewDTO reviewDTO) {
+        var reviewToUpdate = reviewRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Review with id %s not found", id)));
+        return reviewConverter.createFrom(reviewRepository.save(reviewConverter.updateEntity(reviewToUpdate, reviewDTO)));
     }
 }

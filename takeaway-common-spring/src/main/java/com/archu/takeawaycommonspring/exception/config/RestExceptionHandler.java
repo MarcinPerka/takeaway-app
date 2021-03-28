@@ -35,8 +35,8 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @Override
     protected ResponseEntity<Object> handleMissingServletRequestParameter(
-            MissingServletRequestParameterException ex, HttpHeaders headers,
-            HttpStatus status, WebRequest request) {
+            final MissingServletRequestParameterException ex, final HttpHeaders headers,
+            final HttpStatus status, final WebRequest request) {
         var error = ex.getParameterName() + " parameter is missing";
         return buildResponseEntity(ApiError.create(HttpStatus.BAD_REQUEST, error, ex.getClass().getSimpleName()));
     }
@@ -53,10 +53,10 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @Override
     protected ResponseEntity<Object> handleHttpMediaTypeNotSupported(
-            HttpMediaTypeNotSupportedException ex,
-            HttpHeaders headers,
-            HttpStatus status,
-            WebRequest request) {
+            final HttpMediaTypeNotSupportedException ex,
+            final HttpHeaders headers,
+            final HttpStatus status,
+            final WebRequest request) {
         var builder = new StringBuilder();
         builder.append(ex.getContentType());
         builder.append(" media type is not supported. Supported media types are ");
@@ -75,10 +75,10 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
-            MethodArgumentNotValidException ex,
-            HttpHeaders headers,
-            HttpStatus status,
-            WebRequest request) {
+            final MethodArgumentNotValidException ex,
+            final HttpHeaders headers,
+            final HttpStatus status,
+            final WebRequest request) {
         var apiError = ApiError.create(HttpStatus.BAD_REQUEST, "Validation error", ex.getClass().getSimpleName());
         apiError.addValidationErrors(ex.getBindingResult().getFieldErrors());
         apiError.addValidationError(ex.getBindingResult().getGlobalErrors());
@@ -95,7 +95,8 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
      * @return the ApiError object
      */
     @Override
-    protected ResponseEntity<Object> handleBindException(BindException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+    protected ResponseEntity<Object> handleBindException(final BindException ex, final HttpHeaders headers,
+                                                         final HttpStatus status, final WebRequest request) {
         var apiError = ApiError.create(HttpStatus.BAD_REQUEST, "Validation error", ex.getClass().getSimpleName());
         apiError.addValidationErrors(ex.getBindingResult().getFieldErrors());
         apiError.addValidationError(ex.getBindingResult().getGlobalErrors());
@@ -112,7 +113,8 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
      * @return the ApiError object
      */
     @Override
-    protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+    protected ResponseEntity<Object> handleHttpMessageNotReadable(final HttpMessageNotReadableException ex, final HttpHeaders headers,
+                                                                  final HttpStatus status, final WebRequest request) {
         var servletWebRequest = (ServletWebRequest) request;
         log.info("{} to {}", servletWebRequest.getHttpMethod(), servletWebRequest.getRequest().getServletPath());
         var error = "Malformed JSON request";
@@ -129,7 +131,8 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
      * @return the ApiError object
      */
     @Override
-    protected ResponseEntity<Object> handleHttpMessageNotWritable(HttpMessageNotWritableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+    protected ResponseEntity<Object> handleHttpMessageNotWritable(final HttpMessageNotWritableException ex, final HttpHeaders headers,
+                                                                  final HttpStatus status, final WebRequest request) {
         var error = "Error writing JSON output";
         return buildResponseEntity(ApiError.create(HttpStatus.INTERNAL_SERVER_ERROR, error, ex.getClass().getSimpleName()));
     }
@@ -144,8 +147,8 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
      * @return the ApiError object
      */
     @Override
-    protected ResponseEntity<Object> handleNoHandlerFoundException(
-            NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+    protected ResponseEntity<Object> handleNoHandlerFoundException(final NoHandlerFoundException ex, final HttpHeaders headers,
+                                                                   final HttpStatus status, final WebRequest request) {
         var apiError = ApiError.create(HttpStatus.BAD_REQUEST,
                 String.format("Could not find the %s method for URL %s", ex.getHttpMethod(), ex.getRequestURL()), ex.getClass().getSimpleName(), ex.getMessage());
         return buildResponseEntity(apiError);
@@ -158,9 +161,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
      * @return the ApiError object
      */
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    private ResponseEntity<?> handleMethodArgumentTypeMismatchException(
-            MethodArgumentTypeMismatchException ex) {
-
+    private ResponseEntity<?> handleMethodArgumentTypeMismatchException(final MethodArgumentTypeMismatchException ex) {
         var apiError = ApiError.create(HttpStatus.BAD_REQUEST, "Could not convert parameter.", ex.getClass().getSimpleName(), ex.getMessage());
         return buildResponseEntity(apiError);
     }
@@ -173,8 +174,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
      * @return the ApiError object
      */
     @ExceptionHandler(BadRequestException.class)
-    private ResponseEntity<?> handleBadRequestException(
-            BadRequestException ex) {
+    private ResponseEntity<?> handleBadRequestException(final BadRequestException ex) {
         var apiError = ApiError.create(HttpStatus.BAD_REQUEST, "Bad request error.", ex.getClass().getSimpleName(), ex.getMessage());
         return buildResponseEntity(apiError);
     }
@@ -186,13 +186,12 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
      * @return the ApiError object
      */
     @ExceptionHandler(Exception.class)
-    private ResponseEntity<?> handleException(
-            Exception ex) {
+    private ResponseEntity<?> handleException(final Exception ex) {
         var apiError = ApiError.create(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error.", ex.getClass().getSimpleName(), ex.getMessage());
         return buildResponseEntity(apiError);
     }
 
-    private ResponseEntity<Object> buildResponseEntity(ApiError apiError) {
+    private ResponseEntity<Object> buildResponseEntity(final ApiError apiError) {
         return new ResponseEntity<>(apiError, apiError.getStatus());
     }
 

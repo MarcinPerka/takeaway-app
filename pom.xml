@@ -76,8 +76,6 @@
         <module>service-registry</module>
         <module>restaurant-service</module>
         <module>restaurant-service-api</module>
-        <module>customer-service</module>
-        <module>auth-service</module>
         <module>review-service</module>
         <module>review-service-api</module>
         <module>admin-server</module>

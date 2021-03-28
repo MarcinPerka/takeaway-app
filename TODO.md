@@ -6,3 +6,4 @@
 - Dockerfiles
 - Kubernetes as service registry
 - Specified exceptions, exception handler and api error response
+- Centralized swagger

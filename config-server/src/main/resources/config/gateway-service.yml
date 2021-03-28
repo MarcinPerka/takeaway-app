@@ -11,11 +11,6 @@ zuul:
   prefix: /api
   stripPrefix: false
   routes:
-    auth-service:
-      path: /auth/**
-      url: http://localhost:9020
-      stripPrefix: false
-      serviceId: auth-service
     restaurant-service:
       path: /restaurants/**
       url: http://localhost:9010
@@ -26,8 +21,3 @@ zuul:
       url: http://localhost:9030
       stripPrefix: false
       serviceId: review-service
-    customer-service:
-      path: /customers/**
-      url: http://localhost:9000
-      stripPrefix: false
-      serviceId: customer-service

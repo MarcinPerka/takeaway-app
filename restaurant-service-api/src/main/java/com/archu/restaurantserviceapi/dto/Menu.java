@@ -1,6 +1,9 @@
 package com.archu.restaurantserviceapi.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
@@ -8,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
 @EqualsAndHashCode
 @ToString
 public class Menu {

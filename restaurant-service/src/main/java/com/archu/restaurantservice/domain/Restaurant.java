@@ -9,6 +9,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Document(collection = "restaurants")
@@ -22,9 +23,11 @@ public class Restaurant extends BaseEntity {
 
     private final String name;
 
-    private final Set<Cuisine> cuisineTypes;
+    @Builder.Default
+    private final Set<Cuisine> cuisineTypes = new HashSet<>();
 
-    private final Set<Shipping> shippingTypes;
+    @Builder.Default
+    private final Set<Shipping> shippingTypes = new HashSet<>();
 
     private final Menu menu;
 

@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
 import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
@@ -27,10 +28,12 @@ public class RestaurantDTO extends BaseDTO {
     private final String name;
 
     @NotEmpty
-    private final Set<@NotNull Cuisine> cuisineTypes;
+    @Builder.Default
+    private final Set<@NotNull Cuisine> cuisineTypes = new HashSet<>();
 
     @NotEmpty
-    private final Set<@NotNull Shipping> shippingTypes;
+    @Builder.Default
+    private final Set<@NotNull Shipping> shippingTypes = new HashSet<>();
 
     @Valid
     private final Menu menu;

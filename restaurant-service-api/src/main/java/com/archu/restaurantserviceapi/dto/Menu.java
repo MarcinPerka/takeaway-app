@@ -2,6 +2,8 @@ package com.archu.restaurantserviceapi.dto;
 
 import lombok.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +13,8 @@ import java.util.List;
 @ToString
 public class Menu {
 
-    private final List<MenuItem> items = new ArrayList<>();
+    @NotEmpty
+    private final List<@Valid MenuItem> items = new ArrayList<>();
 
     private boolean addItem(MenuItem item) {
         return items.add(item);

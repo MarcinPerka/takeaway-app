@@ -7,7 +7,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.time.Instant;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
@@ -16,18 +19,23 @@ import java.util.Set;
 @Data
 public class RestaurantDTO extends BaseDTO {
 
-    private String id;
+    private final String id;
 
-    private Integer version;
+    private final Integer version;
 
-    private String name;
+    @NotBlank
+    private final String name;
 
-    private Set<Cuisine> cuisineTypes;
+    @NotEmpty
+    private final Set<@NotNull Cuisine> cuisineTypes;
 
-    private Set<Shipping> shippingTypes;
+    @NotEmpty
+    private final Set<@NotNull Shipping> shippingTypes;
 
-    private Menu menu;
+    @Valid
+    private final Menu menu;
 
-    private Location location;
+    @Valid
+    private final Location location;
 
 }

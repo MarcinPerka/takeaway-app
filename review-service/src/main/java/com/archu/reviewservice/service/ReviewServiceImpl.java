@@ -33,13 +33,13 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public ReviewDTO createReview(final ReviewDTO reviewDTO) {
-        var review = reviewConverter.createFrom(reviewDTO);
+        final var review = reviewConverter.createFrom(reviewDTO);
         return reviewConverter.createFrom(reviewRepository.save(review));
     }
 
     @Override
     public ReviewDTO updateReview(final String id, final ReviewDTO reviewDTO) {
-        var reviewToUpdate = reviewRepository.findById(id)
+        final var reviewToUpdate = reviewRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(String.format("Review with id %s not found", id)));
         return reviewConverter.createFrom(reviewRepository.save(reviewConverter.updateEntity(reviewToUpdate, reviewDTO)));
     }

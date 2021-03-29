@@ -2,6 +2,7 @@ package com.archu.reviewservice.controller;
 
 import com.archu.reviewservice.service.ReviewService;
 import com.archu.reviewserviceapi.dto.ReviewDTO;
+import com.archu.takeawaycommonspring.apiversion.MediaType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
+@RequestMapping(produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE, consumes = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)
 public class ReviewController {
 
     private final ReviewService reviewService;

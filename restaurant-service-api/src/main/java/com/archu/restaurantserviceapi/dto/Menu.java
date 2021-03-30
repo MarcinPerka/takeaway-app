@@ -15,11 +15,4 @@ public class Menu {
     @NotEmpty
     private List<@Valid MenuItem> items;
 
-    private boolean addItem(MenuItem item) {
-        return items.add(item);
-    }
-
-    private boolean removeItem(MenuItem item) {
-        return items.remove(item);
-    }
 }

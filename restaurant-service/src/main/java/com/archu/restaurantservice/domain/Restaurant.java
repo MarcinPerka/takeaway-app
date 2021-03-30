@@ -31,19 +31,4 @@ public class Restaurant extends BaseEntity {
 
     private Location location;
 
-    private boolean addCuisine(Cuisine cuisine) {
-        return cuisineTypes.add(cuisine);
-    }
-
-    private boolean removeCuisine(Cuisine cuisine) {
-        return cuisineTypes.remove(cuisine);
-    }
-
-    private boolean addShipping(Shipping shipping) {
-        return shippingTypes.add(shipping);
-    }
-
-    private boolean removeShipping(Shipping shipping) {
-        return shippingTypes.remove(shipping);
-    }
 }

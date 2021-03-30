@@ -1,21 +1,22 @@
 package com.archu.restaurantserviceapi.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class Menu {
 
     @NotEmpty
-    private final List<@Valid MenuItem> items = new ArrayList<>();
+    private List<@Valid MenuItem> items;
 
     private boolean addItem(MenuItem item) {
         return items.add(item);

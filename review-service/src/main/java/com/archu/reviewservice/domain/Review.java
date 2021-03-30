@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-import org.springframework.data.annotation.Immutable;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "reviews")
@@ -16,12 +15,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @ToString
 public class Review extends BaseEntity {
 
-    private final String author;
+    private String author;
 
-    private final String message;
+    private String message;
 
-    private final int rating;
+    private int rating;
 
-    private final String restaurantId;
+    private String restaurantId;
 
 }

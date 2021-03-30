@@ -1,21 +1,23 @@
 package com.archu.restaurantserviceapi.dto;
 
 import com.archu.takeawaycommon.dto.Money;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
 @Getter
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class MenuItem {
 
     @NotBlank
-    private final String name;
+    private String name;
 
     @Valid
-    private final Money price;
+    private Money price;
 }

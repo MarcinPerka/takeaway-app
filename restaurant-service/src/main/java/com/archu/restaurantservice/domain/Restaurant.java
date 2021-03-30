@@ -5,11 +5,13 @@ import com.archu.restaurantserviceapi.dto.Menu;
 import com.archu.restaurantserviceapi.dto.Shipping;
 import com.archu.takeawaycommon.dto.Location;
 import com.archu.takeawaycommonspring.base.BaseEntity;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.HashSet;
 import java.util.Set;
 
 @Document(collection = "restaurants")
@@ -19,16 +21,29 @@ import java.util.Set;
 @ToString
 public class Restaurant extends BaseEntity {
 
-    private final String name;
+    private String name;
 
-    @Builder.Default
-    private final Set<Cuisine> cuisineTypes = new HashSet<>();
+    private Set<Cuisine> cuisineTypes;
 
-    @Builder.Default
-    private final Set<Shipping> shippingTypes = new HashSet<>();
+    private Set<Shipping> shippingTypes;
 
-    private final Menu menu;
+    private Menu menu;
 
-    private final Location location;
+    private Location location;
 
+    private boolean addCuisine(Cuisine cuisine) {
+        return cuisineTypes.add(cuisine);
+    }
+
+    private boolean removeCuisine(Cuisine cuisine) {
+        return cuisineTypes.remove(cuisine);
+    }
+
+    private boolean addShipping(Shipping shipping) {
+        return shippingTypes.add(shipping);
+    }
+
+    private boolean removeShipping(Shipping shipping) {
+        return shippingTypes.remove(shipping);
+    }
 }

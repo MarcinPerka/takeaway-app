@@ -12,8 +12,8 @@ import java.time.Instant;
 import java.util.Set;
 
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE, staticName = "of")
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
 public class RestaurantDTO extends BaseDTO {

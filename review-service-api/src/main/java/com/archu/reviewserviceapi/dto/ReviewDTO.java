@@ -6,8 +6,8 @@ import lombok.*;
 import java.time.Instant;
 
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE, staticName = "of")
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
 public class ReviewDTO extends BaseDTO {

@@ -1,17 +1,14 @@
 package com.archu.takeawaycommon.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
 
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE, staticName = "of")
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
 public class Money {
 

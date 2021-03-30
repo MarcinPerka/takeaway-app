@@ -1,15 +1,12 @@
 package com.archu.reviewserviceapi.dto;
 
 import com.archu.takeawaycommonspring.base.BaseDTO;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
-@EqualsAndHashCode(callSuper = true)
 @Builder
-@AllArgsConstructor
-@Data
+@RequiredArgsConstructor
+@Getter
+@ToString
 public class ReviewDTO extends BaseDTO {
 
     private final String id;

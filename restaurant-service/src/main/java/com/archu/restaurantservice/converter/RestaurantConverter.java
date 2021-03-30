@@ -35,6 +35,7 @@ public class RestaurantConverter implements BaseConverter<RestaurantDTO, Restaur
     @Override
     public Restaurant updateEntity(final Restaurant entity, final RestaurantDTO dto) {
         return entity.toBuilder()
+                .id(dto.getId())
                 .version(dto.getVersion())
                 .name(dto.getName())
                 .menu(dto.getMenu())

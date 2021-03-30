@@ -24,6 +24,8 @@ public class ReviewConverter implements BaseConverter<ReviewDTO, Review> {
                 .author(entity.getAuthor())
                 .message(entity.getMessage())
                 .rating(entity.getRating())
+                .createdAt(entity.getCreatedAt())
+                .updatedAt(entity.getUpdatedAt())
                 .build();
     }
 

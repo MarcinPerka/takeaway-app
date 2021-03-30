@@ -7,7 +7,6 @@ import com.archu.takeawaycommon.dto.Location;
 import com.archu.takeawaycommonspring.base.BaseEntity;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.springframework.data.annotation.Immutable;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.HashSet;
@@ -18,7 +17,6 @@ import java.util.Set;
 @SuperBuilder(toBuilder = true)
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @ToString
-@Immutable
 public class Restaurant extends BaseEntity {
 
     private final String name;

@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -40,5 +41,9 @@ public class RestaurantDTO extends BaseDTO {
 
     @Valid
     private final Location location;
+
+    private final Instant createdAt;
+
+    private final Instant updatedAt;
 
 }

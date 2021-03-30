@@ -14,7 +14,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @SuperBuilder(toBuilder = true)
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @ToString
-@Immutable
 public class Review extends BaseEntity {
 
     private final String author;

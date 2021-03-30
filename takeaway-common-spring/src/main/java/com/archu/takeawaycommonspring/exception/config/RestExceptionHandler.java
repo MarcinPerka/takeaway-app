@@ -79,7 +79,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
             final HttpHeaders headers,
             final HttpStatus status,
             final WebRequest request) {
-        final var apiError = ApiError.create(HttpStatus.BAD_REQUEST, "Validation error", ex.getClass().getSimpleName());
+        final var apiError = ApiError.create(HttpStatus.UNPROCESSABLE_ENTITY, "Validation error", ex.getClass().getSimpleName());
         apiError.addValidationErrors(ex.getBindingResult().getFieldErrors());
         apiError.addValidationError(ex.getBindingResult().getGlobalErrors());
         return buildResponseEntity(apiError);

@@ -29,13 +29,14 @@ public class RestaurantConverter implements BaseConverter<RestaurantDTO, Restaur
                 .location(entity.getLocation())
                 .shippingTypes(entity.getShippingTypes())
                 .cuisineTypes(entity.getCuisineTypes())
+                .createdAt(entity.getCreatedAt())
+                .updatedAt(entity.getUpdatedAt())
                 .build();
     }
 
     @Override
     public Restaurant updateEntity(final Restaurant entity, final RestaurantDTO dto) {
         return entity.toBuilder()
-                .id(dto.getId())
                 .version(dto.getVersion())
                 .name(dto.getName())
                 .menu(dto.getMenu())

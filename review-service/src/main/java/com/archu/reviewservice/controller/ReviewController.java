@@ -5,6 +5,7 @@ import com.archu.reviewserviceapi.dto.ReviewDTO;
 import com.archu.takeawaycommonspring.apiversion.MediaType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,17 +19,21 @@ public class ReviewController {
 
     private final ReviewService reviewService;
 
-    @GetMapping(path = "/{id}")
+    @GetMapping("/{id}")
     public ReviewDTO getReviewById(@PathVariable final String id) {
         return reviewService.findReviewById(id);
     }
 
+
     @GetMapping
-    public List<ReviewDTO> getReviewsById(@RequestParam final String author) {
-        return reviewService.findReviewsByAuthor(author);
+    public Page<ReviewDTO> getReviewsByRestaurantId(@RequestParam final String restaurantId,
+                                                    @RequestParam(required = false, defaultValue = "0") final int page,
+                                                    @RequestParam(required = false, defaultValue = "10") final int size,
+                                                    @RequestParam(required = false, defaultValue = "") final List<String> sort) {
+        return reviewService.findReviewsByRestaurantId(restaurantId, page, size, sort);
     }
 
-    @PutMapping(path = "/{id}")
+    @PutMapping("/{id}")
     public ReviewDTO updateReview(@PathVariable final String id, @RequestBody final ReviewDTO reviewDTO) {
         return reviewService.updateReview(id, reviewDTO);
     }

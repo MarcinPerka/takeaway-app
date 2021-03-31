@@ -1,4 +1,4 @@
-package com.archu.takeawaycommonspring.base;
+package com.archu.takeawaycommonspring.base.domain;
 
 import java.util.Collection;
 import java.util.List;

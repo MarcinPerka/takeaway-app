@@ -1,7 +1,7 @@
 package com.archu.restaurantserviceapi.dto;
 
 import com.archu.takeawaycommon.dto.Location;
-import com.archu.takeawaycommonspring.base.BaseDTO;
+import com.archu.takeawaycommonspring.base.domain.BaseDTO;
 import lombok.*;
 
 import javax.validation.Valid;

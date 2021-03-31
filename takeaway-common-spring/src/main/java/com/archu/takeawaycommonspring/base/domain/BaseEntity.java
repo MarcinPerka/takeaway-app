@@ -1,4 +1,4 @@
-package com.archu.takeawaycommonspring.base;
+package com.archu.takeawaycommonspring.base.domain;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;

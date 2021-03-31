@@ -5,6 +5,7 @@ import com.archu.restaurantserviceapi.dto.RestaurantDTO;
 import com.archu.takeawaycommonspring.apiversion.MediaType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,17 +20,19 @@ public class RestaurantController {
 
     private final RestaurantService restaurantService;
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public RestaurantDTO getRestaurantById(@PathVariable final String id) {
         return restaurantService.findRestaurantById(id);
     }
 
     @GetMapping
-    public List<RestaurantDTO> getAllRestaurants() {
-        return restaurantService.findAllRestaurants();
+    public Page<RestaurantDTO> getRestaurants(@RequestParam(required = false, defaultValue = "0") final int page,
+                                              @RequestParam(required = false, defaultValue = "10") final int size,
+                                              @RequestParam(required = false, defaultValue = "") final List<String> sort) {
+        return restaurantService.findRestaurants(page, size, sort);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public RestaurantDTO updateRestaurant(@PathVariable final String id, @Valid @RequestBody final RestaurantDTO restaurantDTO) {
         return restaurantService.updateRestaurant(id, restaurantDTO);
     }

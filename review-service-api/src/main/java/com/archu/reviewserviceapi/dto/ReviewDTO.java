@@ -1,6 +1,6 @@
 package com.archu.reviewserviceapi.dto;
 
-import com.archu.takeawaycommonspring.base.BaseDTO;
+import com.archu.takeawaycommonspring.base.domain.BaseDTO;
 import lombok.*;
 
 import java.time.Instant;

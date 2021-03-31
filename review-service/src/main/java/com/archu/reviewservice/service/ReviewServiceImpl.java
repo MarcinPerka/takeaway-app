@@ -3,13 +3,14 @@ package com.archu.reviewservice.service;
 import com.archu.reviewservice.converter.ReviewConverter;
 import com.archu.reviewservice.repository.ReviewRepository;
 import com.archu.reviewserviceapi.dto.ReviewDTO;
+import com.archu.takeawaycommonspring.base.page.PagingAndSortingRequest;
 import com.archu.takeawaycommonspring.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,8 +28,9 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<ReviewDTO> findReviewsByAuthor(final String author) {
-        return reviewRepository.findReviewsByAuthor(author).stream().map(reviewConverter::createFrom).collect(Collectors.toList());
+    public Page<ReviewDTO> findReviewsByRestaurantId(final String restaurantId, final int page, final int size, final List<String> sort) {
+        final var pageRequest = PagingAndSortingRequest.of(page, size, sort);
+        return reviewRepository.findReviewsByRestaurantId(restaurantId, pageRequest).map(reviewConverter::createFrom);
     }
 
     @Override

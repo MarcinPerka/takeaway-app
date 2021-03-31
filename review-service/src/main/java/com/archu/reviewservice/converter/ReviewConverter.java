@@ -2,7 +2,7 @@ package com.archu.reviewservice.converter;
 
 import com.archu.reviewservice.domain.Review;
 import com.archu.reviewserviceapi.dto.ReviewDTO;
-import com.archu.takeawaycommonspring.base.BaseConverter;
+import com.archu.takeawaycommonspring.base.domain.BaseConverter;
 import org.springframework.stereotype.Component;
 
 @Component

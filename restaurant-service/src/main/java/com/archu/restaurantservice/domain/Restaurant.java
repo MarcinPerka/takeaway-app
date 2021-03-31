@@ -4,7 +4,7 @@ import com.archu.restaurantserviceapi.dto.Cuisine;
 import com.archu.restaurantserviceapi.dto.Menu;
 import com.archu.restaurantserviceapi.dto.Shipping;
 import com.archu.takeawaycommon.dto.Location;
-import com.archu.takeawaycommonspring.base.BaseEntity;
+import com.archu.takeawaycommonspring.base.domain.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

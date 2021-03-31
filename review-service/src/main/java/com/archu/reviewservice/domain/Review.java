@@ -1,6 +1,6 @@
 package com.archu.reviewservice.domain;
 
-import com.archu.takeawaycommonspring.base.BaseEntity;
+import com.archu.takeawaycommonspring.base.domain.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

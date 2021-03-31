@@ -1,6 +1,7 @@
 package com.archu.restaurantservice.service;
 
 import com.archu.restaurantserviceapi.dto.RestaurantDTO;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,7 +10,7 @@ public interface RestaurantService {
 
     RestaurantDTO findRestaurantById(final String id);
 
-    List<RestaurantDTO> findAllRestaurants();
+    Page<RestaurantDTO> findRestaurants(final int page, final int size, final List<String> sort);
 
     RestaurantDTO createRestaurant(final RestaurantDTO restaurantDTO);
 

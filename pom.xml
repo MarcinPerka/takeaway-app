@@ -25,6 +25,7 @@
         <zuul.version>2.2.7.RELEASE</zuul.version>
         <springdoc.version>1.5.6</springdoc.version>
         <javax-validation.version>2.0.1.Final</javax-validation.version>
+        <query-dsl.version>4.4.0</query-dsl.version>
     </properties>
 
     <dependencyManagement>
@@ -72,6 +73,16 @@
                 <groupId>javax.validation</groupId>
                 <artifactId>validation-api</artifactId>
                 <version>${javax-validation.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.querydsl</groupId>
+                <artifactId>querydsl-mongodb</artifactId>
+                <version>${query-dsl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.querydsl</groupId>
+                <artifactId>querydsl-apt</artifactId>
+                <version>${query-dsl.version}</version>
             </dependency>
         </dependencies>
 

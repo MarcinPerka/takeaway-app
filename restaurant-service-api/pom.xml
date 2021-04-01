@@ -32,14 +32,12 @@
         <dependency>
             <groupId>com.archu</groupId>
             <artifactId>takeaway-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>com.archu</groupId>
             <artifactId>takeaway-common-spring</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 

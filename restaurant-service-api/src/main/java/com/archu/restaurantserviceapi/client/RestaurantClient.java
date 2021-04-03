@@ -1,19 +1,28 @@
 package com.archu.restaurantserviceapi.client;
 
-import com.archu.restaurantserviceapi.dto.RestaurantDTO;
+import com.archu.restaurantserviceapi.dto.RestaurantRequest;
+import com.archu.restaurantserviceapi.dto.RestaurantResponse;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @FeignClient("restaurant-service")
 public interface RestaurantClient {
 
-    @GetMapping(path = "/{id}")
-    RestaurantDTO getRestaurantById(@PathVariable final String id);
+    @GetMapping("/{id}")
+    RestaurantResponse getRestaurantById(@PathVariable final String id);
 
-    @PutMapping(path = "/{id}")
-    RestaurantDTO updateRestaurant(@PathVariable String id, @RequestBody final RestaurantDTO restaurant);
+    @GetMapping
+    Page<RestaurantResponse> getRestaurants(@RequestParam final int page,
+                                            @RequestParam final int size,
+                                            @RequestParam final List<String> sort);
+
+    @PutMapping("/{id}")
+    RestaurantResponse updateRestaurant(@PathVariable final String id, @Valid @RequestBody final RestaurantRequest restaurantRequest);
 
     @PostMapping
-    RestaurantDTO createRestaurant(@RequestBody final RestaurantDTO restaurant);
-
+    RestaurantResponse createRestaurant(@Valid @RequestBody final RestaurantRequest restaurantRequest);
 }

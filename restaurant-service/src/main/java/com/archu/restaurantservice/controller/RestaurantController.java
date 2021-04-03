@@ -1,7 +1,8 @@
 package com.archu.restaurantservice.controller;
 
 import com.archu.restaurantservice.service.RestaurantService;
-import com.archu.restaurantserviceapi.dto.RestaurantDTO;
+import com.archu.restaurantserviceapi.dto.RestaurantRequest;
+import com.archu.restaurantserviceapi.dto.RestaurantResponse;
 import com.archu.takeawaycommonspring.apiversion.MediaType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,25 +22,25 @@ public class RestaurantController {
     private final RestaurantService restaurantService;
 
     @GetMapping("/{id}")
-    public RestaurantDTO getRestaurantById(@PathVariable final String id) {
+    public RestaurantResponse getRestaurantById(@PathVariable final String id) {
         return restaurantService.findRestaurantById(id);
     }
 
     @GetMapping
-    public Page<RestaurantDTO> getRestaurants(@RequestParam(required = false, defaultValue = "0") final int page,
+    public Page<RestaurantResponse> getRestaurants(@RequestParam(required = false, defaultValue = "0") final int page,
                                               @RequestParam(required = false, defaultValue = "10") final int size,
                                               @RequestParam(required = false, defaultValue = "") final List<String> sort) {
         return restaurantService.findRestaurants(page, size, sort);
     }
 
     @PutMapping("/{id}")
-    public RestaurantDTO updateRestaurant(@PathVariable final String id, @Valid @RequestBody final RestaurantDTO restaurantDTO) {
-        return restaurantService.updateRestaurant(id, restaurantDTO);
+    public RestaurantResponse updateRestaurant(@PathVariable final String id, @Valid @RequestBody final RestaurantRequest restaurantRequest) {
+        return restaurantService.updateRestaurant(id, restaurantRequest);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public RestaurantDTO createRestaurant(@Valid @RequestBody final RestaurantDTO restaurantDTO) {
-        return restaurantService.createRestaurant(restaurantDTO);
+    public RestaurantResponse createRestaurant(@Valid @RequestBody final RestaurantRequest restaurantRequest) {
+        return restaurantService.createRestaurant(restaurantRequest);
     }
 }

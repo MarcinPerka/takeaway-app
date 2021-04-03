@@ -1,8 +1,10 @@
 package com.archu.reviewserviceapi.client;
 
 
-import com.archu.reviewserviceapi.dto.ReviewDTO;
+import com.archu.reviewserviceapi.dto.ReviewRequest;
+import com.archu.reviewserviceapi.dto.ReviewResponse;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,16 +12,19 @@ import java.util.List;
 @FeignClient("review-service")
 public interface ReviewClient {
 
-    @GetMapping(path = "/{id}")
-    ReviewDTO getReviewById(@PathVariable final String id);
+    @GetMapping("/{id}")
+    ReviewResponse getReviewById(@PathVariable final String id);
 
     @GetMapping
-    List<ReviewDTO> getReviewsById(@RequestParam final String author);
+    Page<ReviewResponse> getReviewsByRestaurantId(@RequestParam final String restaurantId,
+                                                  @RequestParam final int page,
+                                                  @RequestParam final int size,
+                                                  @RequestParam final List<String> sort);
 
-    @PutMapping(path = "/{id}")
-    ReviewDTO updateReview(@PathVariable final String id, @RequestBody final ReviewDTO reviewDTO);
+    @PutMapping("/{id}")
+    ReviewResponse updateReview(@PathVariable final String id, @RequestBody final ReviewRequest reviewRequest);
 
     @PostMapping
-    ReviewDTO createReview(@RequestBody final ReviewDTO reviewDTO);
+    ReviewResponse createReview(@RequestBody final ReviewRequest reviewRequest);
 
 }

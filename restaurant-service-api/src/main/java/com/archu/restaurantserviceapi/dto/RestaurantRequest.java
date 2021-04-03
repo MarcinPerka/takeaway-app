@@ -1,14 +1,13 @@
 package com.archu.restaurantserviceapi.dto;
 
 import com.archu.takeawaycommon.dto.Location;
-import com.archu.takeawaycommonspring.base.domain.BaseDTO;
+import com.archu.takeawaycommonspring.base.domain.BaseRequest;
 import lombok.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.time.Instant;
 import java.util.Set;
 
 @Builder
@@ -16,9 +15,7 @@ import java.util.Set;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class RestaurantDTO extends BaseDTO {
-
-    private String id;
+public class RestaurantRequest extends BaseRequest {
 
     private Integer version;
 
@@ -36,9 +33,5 @@ public class RestaurantDTO extends BaseDTO {
 
     @Valid
     private Location location;
-
-    private Instant createdAt;
-
-    private Instant updatedAt;
 
 }

@@ -2,7 +2,8 @@ package com.archu.restaurantservice.service;
 
 import com.archu.restaurantservice.converter.RestaurantConverter;
 import com.archu.restaurantservice.repository.RestaurantRepository;
-import com.archu.restaurantserviceapi.dto.RestaurantDTO;
+import com.archu.restaurantserviceapi.dto.RestaurantRequest;
+import com.archu.restaurantserviceapi.dto.RestaurantResponse;
 import com.archu.takeawaycommonspring.base.page.PagingAndSortingRequest;
 import com.archu.takeawaycommonspring.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -23,27 +24,27 @@ public class RestaurantServiceImpl implements RestaurantService {
     private final RestaurantConverter restaurantConverter;
 
     @Override
-    public RestaurantDTO findRestaurantById(final String id) {
+    public RestaurantResponse findRestaurantById(final String id) {
         return restaurantRepository.findById(id).map(restaurantConverter::createFrom)
                 .orElseThrow(() -> new ResourceNotFoundException(String.format("Restaurant with id %s not found", id)));
     }
 
     @Override
-    public Page<RestaurantDTO> findRestaurants(final int page, final int size, final List<String> sort) {
+    public Page<RestaurantResponse> findRestaurants(final int page, final int size, final List<String> sort) {
         final var pageRequest = PagingAndSortingRequest.of(page, size, sort);
         return restaurantRepository.findAll(pageRequest).map(restaurantConverter::createFrom);
     }
 
     @Override
-    public RestaurantDTO createRestaurant(final RestaurantDTO restaurantDTO) {
-        var restaurant = restaurantConverter.createFrom(restaurantDTO);
+    public RestaurantResponse createRestaurant(final RestaurantRequest restaurantRequest) {
+        var restaurant = restaurantConverter.createFrom(restaurantRequest);
         return restaurantConverter.createFrom(restaurantRepository.save(restaurant));
     }
 
     @Override
-    public RestaurantDTO updateRestaurant(final String id, final RestaurantDTO restaurantDTO) {
+    public RestaurantResponse updateRestaurant(final String id, final RestaurantRequest restaurantRequest) {
         var restaurantToUpdate = restaurantRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(String.format("Restaurant with id %s not found", id)));
-        return restaurantConverter.createFrom(restaurantRepository.save(restaurantConverter.updateEntity(restaurantToUpdate, restaurantDTO)));
+        return restaurantConverter.createFrom(restaurantRepository.save(restaurantConverter.updateEntity(restaurantToUpdate, restaurantRequest)));
     }
 }

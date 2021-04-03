@@ -1,6 +1,6 @@
 package com.archu.reviewserviceapi.dto;
 
-import com.archu.takeawaycommonspring.base.domain.BaseDTO;
+import com.archu.takeawaycommonspring.base.domain.BaseResponse;
 import lombok.*;
 
 import java.time.Instant;
@@ -10,7 +10,7 @@ import java.time.Instant;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class ReviewDTO extends BaseDTO {
+public class ReviewResponse extends BaseResponse {
 
     private String id;
 

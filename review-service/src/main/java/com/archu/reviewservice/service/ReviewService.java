@@ -1,17 +1,18 @@
 package com.archu.reviewservice.service;
 
-import com.archu.reviewserviceapi.dto.ReviewDTO;
+import com.archu.reviewserviceapi.dto.ReviewRequest;
+import com.archu.reviewserviceapi.dto.ReviewResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
 
 public interface ReviewService {
 
-    ReviewDTO findReviewById(final String id);
+    ReviewResponse findReviewById(final String id);
 
-    Page<ReviewDTO> findReviewsByRestaurantId(final String restaurantId, final int page, final int size, final List<String> sort);
+    Page<ReviewResponse> findReviewsByRestaurantId(final String restaurantId, final int page, final int size, final List<String> sort);
 
-    ReviewDTO createReview(final ReviewDTO reviewDTO);
+    ReviewResponse createReview(final ReviewRequest reviewRequest);
 
-    ReviewDTO updateReview(final String id, final ReviewDTO reviewDTO);
+    ReviewResponse updateReview(final String id, final ReviewRequest reviewRequest);
 }

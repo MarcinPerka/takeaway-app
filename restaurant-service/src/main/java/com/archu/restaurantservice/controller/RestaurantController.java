@@ -1,12 +1,16 @@
 package com.archu.restaurantservice.controller;
 
+import com.archu.restaurantservice.domain.Restaurant;
+import com.archu.restaurantservice.repository.RestaurantRepository;
 import com.archu.restaurantservice.service.RestaurantService;
 import com.archu.restaurantserviceapi.dto.RestaurantRequest;
 import com.archu.restaurantserviceapi.dto.RestaurantResponse;
 import com.archu.takeawaycommonspring.apiversion.MediaType;
+import com.querydsl.core.types.Predicate;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
+import org.springframework.data.querydsl.binding.QuerydslPredicate;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,10 +31,11 @@ public class RestaurantController {
     }
 
     @GetMapping
-    public Page<RestaurantResponse> getRestaurants(@RequestParam(required = false, defaultValue = "0") final int page,
-                                              @RequestParam(required = false, defaultValue = "10") final int size,
-                                              @RequestParam(required = false, defaultValue = "") final List<String> sort) {
-        return restaurantService.findRestaurants(page, size, sort);
+    public Page<RestaurantResponse> getRestaurants(@RequestParam(defaultValue = "0") final int page,
+                                                   @RequestParam(defaultValue = "10") final int size,
+                                                   @RequestParam(defaultValue = "") final List<String> sort,
+                                                   @QuerydslPredicate(root = Restaurant.class, bindings = RestaurantRepository.class) final Predicate predicate) {
+        return restaurantService.findRestaurants(page, size, sort, predicate);
     }
 
     @PutMapping("/{id}")

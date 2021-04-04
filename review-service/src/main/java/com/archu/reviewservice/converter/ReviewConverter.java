@@ -13,7 +13,9 @@ public class ReviewConverter implements BaseConverter<ReviewRequest, ReviewRespo
         return Review.builder()
                 .author(dto.getAuthor())
                 .message(dto.getMessage())
-                .rating(dto.getRating())
+                .restaurantId(dto.getRestaurantId())
+                .deliveryRating(dto.getDeliveryRating())
+                .foodRating(dto.getFoodRating())
                 .build();
     }
 
@@ -24,7 +26,9 @@ public class ReviewConverter implements BaseConverter<ReviewRequest, ReviewRespo
                 .version(entity.getVersion())
                 .author(entity.getAuthor())
                 .message(entity.getMessage())
-                .rating(entity.getRating())
+                .restaurantId(entity.getRestaurantId())
+                .deliveryRating(entity.getDeliveryRating())
+                .foodRating(entity.getFoodRating())
                 .createdAt(entity.getCreatedAt())
                 .updatedAt(entity.getUpdatedAt())
                 .build();
@@ -36,7 +40,9 @@ public class ReviewConverter implements BaseConverter<ReviewRequest, ReviewRespo
                 .version(dto.getVersion())
                 .author(dto.getAuthor())
                 .message(dto.getMessage())
-                .rating(dto.getRating())
+                .restaurantId(dto.getRestaurantId())
+                .deliveryRating(dto.getDeliveryRating())
+                .foodRating(dto.getFoodRating())
                 .build();
     }
 }

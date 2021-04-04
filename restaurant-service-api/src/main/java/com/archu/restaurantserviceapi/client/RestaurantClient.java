@@ -2,6 +2,7 @@ package com.archu.restaurantserviceapi.client;
 
 import com.archu.restaurantserviceapi.dto.RestaurantRequest;
 import com.archu.restaurantserviceapi.dto.RestaurantResponse;
+import com.querydsl.core.types.Predicate;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -18,11 +19,12 @@ public interface RestaurantClient {
     @GetMapping
     Page<RestaurantResponse> getRestaurants(@RequestParam final int page,
                                             @RequestParam final int size,
-                                            @RequestParam final List<String> sort);
+                                            @RequestParam final List<String> sort,
+                                            Predicate predicate);
 
     @PutMapping("/{id}")
-    RestaurantResponse updateRestaurant(@PathVariable final String id, @Valid @RequestBody final RestaurantRequest restaurantRequest);
+    RestaurantResponse updateRestaurant(@PathVariable final String id, @RequestBody final RestaurantRequest restaurantRequest);
 
     @PostMapping
-    RestaurantResponse createRestaurant(@Valid @RequestBody final RestaurantRequest restaurantRequest);
+    RestaurantResponse createRestaurant(@RequestBody final RestaurantRequest restaurantRequest);
 }

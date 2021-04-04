@@ -6,6 +6,7 @@ import com.archu.restaurantserviceapi.dto.RestaurantRequest;
 import com.archu.restaurantserviceapi.dto.RestaurantResponse;
 import com.archu.takeawaycommonspring.base.page.PagingAndSortingRequest;
 import com.archu.takeawaycommonspring.exception.ResourceNotFoundException;
+import com.querydsl.core.types.Predicate;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -30,9 +31,9 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public Page<RestaurantResponse> findRestaurants(final int page, final int size, final List<String> sort) {
+    public Page<RestaurantResponse> findRestaurants(final int page, final int size, final List<String> sort, final Predicate predicate) {
         final var pageRequest = PagingAndSortingRequest.of(page, size, sort);
-        return restaurantRepository.findAll(pageRequest).map(restaurantConverter::createFrom);
+        return restaurantRepository.findAll(predicate, pageRequest).map(restaurantConverter::createFrom);
     }
 
     @Override

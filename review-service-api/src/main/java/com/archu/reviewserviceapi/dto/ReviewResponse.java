@@ -20,7 +20,9 @@ public class ReviewResponse extends BaseResponse {
 
     private String message;
 
-    private int rating;
+    private int foodRating;
+
+    private int deliveryRating;
 
     private String restaurantId;
 

@@ -6,6 +6,7 @@ import com.archu.reviewserviceapi.dto.ReviewRequest;
 import com.archu.reviewserviceapi.dto.ReviewResponse;
 import com.archu.takeawaycommonspring.base.page.PagingAndSortingRequest;
 import com.archu.takeawaycommonspring.exception.ResourceNotFoundException;
+import com.querydsl.core.types.Predicate;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -29,9 +30,9 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public Page<ReviewResponse> findReviewsByRestaurantId(final String restaurantId, final int page, final int size, final List<String> sort) {
+    public Page<ReviewResponse> findReviews(final int page, final int size, final List<String> sort, final Predicate predicate) {
         final var pageRequest = PagingAndSortingRequest.of(page, size, sort);
-        return reviewRepository.findReviewsByRestaurantId(restaurantId, pageRequest).map(reviewConverter::createFrom);
+        return reviewRepository.findAll(predicate, pageRequest).map(reviewConverter::createFrom);
     }
 
     @Override

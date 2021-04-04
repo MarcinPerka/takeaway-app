@@ -20,18 +20,17 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping(produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE, consumes = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)
 public class ReviewController {
 
     private final ReviewService reviewService;
 
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)
     public ReviewResponse getReviewById(@PathVariable final String id) {
         return reviewService.findReviewById(id);
     }
 
 
-    @GetMapping
+    @GetMapping(produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)
     public Page<ReviewResponse> getReviews(@RequestParam(defaultValue = "0") final int page,
                                            @RequestParam(defaultValue = "10") final int size,
                                            @RequestParam(defaultValue = "") final List<String> sort,
@@ -39,12 +38,12 @@ public class ReviewController {
         return reviewService.findReviews(page, size, sort, predicate);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE, consumes = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)
     public ReviewResponse updateReview(@PathVariable final String id, @Valid @RequestBody final ReviewRequest reviewRequest) {
         return reviewService.updateReview(id, reviewRequest);
     }
 
-    @PostMapping
+    @PostMapping(produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE, consumes = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public ReviewResponse createReview(@Valid @RequestBody final ReviewRequest reviewRequest) {
         return reviewService.createReview(reviewRequest);

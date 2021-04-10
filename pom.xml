@@ -20,7 +20,6 @@
         <java.version>11</java.version>
         <spring-cloud.version>2020.0.1</spring-cloud.version>
         <spring-boot-admin.version>2.4.0</spring-boot-admin.version>
-        <embed-mongo>3.0.0</embed-mongo>
         <lombok.version>1.18.18</lombok.version>
         <zuul.version>2.2.7.RELEASE</zuul.version>
         <springdoc.version>1.5.6</springdoc.version>
@@ -51,12 +50,6 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
                 <version>${zuul.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.flapdoodle.embed</groupId>
-                <artifactId>de.flapdoodle.embed.mongo</artifactId>
-                <version>${embed-mongo}</version>
-                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>

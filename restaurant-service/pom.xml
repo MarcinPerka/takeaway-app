@@ -2,17 +2,37 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.4</version>
+    </parent>
+    <groupId>com.archu</groupId>
     <artifactId>restaurant-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>restaurant-service</name>
-    <packaging>jar</packaging>
 
-    <parent>
-        <groupId>com.archu</groupId>
-        <artifactId>takeaway-app</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <spring-cloud.version>2020.0.1</spring-cloud.version>
+        <spring-boot-admin.version>2.4.0</spring-boot-admin.version>
+        <lombok.version>1.18.18</lombok.version>
+        <query-dsl.version>4.4.0</query-dsl.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -41,40 +61,44 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-starter-client</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
         <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>${spring-boot-admin.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.archu</groupId>
             <artifactId>takeaway-common</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${version}</version>
         </dependency>
         <dependency>
             <groupId>com.archu</groupId>
             <artifactId>takeaway-common-spring</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${version}</version>
         </dependency>
         <dependency>
             <groupId>com.archu</groupId>
             <artifactId>restaurant-service-api</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${version}</version>
         </dependency>
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-mongodb</artifactId>
+            <version>${query-dsl.version}</version>
         </dependency>
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-apt</artifactId>
+            <version>${query-dsl.version}</version>
         </dependency>
     </dependencies>
 
@@ -94,6 +118,10 @@
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
+                <configuration>
+                    <failOnNoGitDirectory>false</failOnNoGitDirectory>
+                    <dotGitDirectory>${project.basedir}/../.git</dotGitDirectory>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>com.mysema.maven</groupId>

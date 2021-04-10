@@ -33,9 +33,8 @@ public class ReviewController {
     @GetMapping(produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)
     public Page<ReviewResponse> getReviews(@RequestParam(defaultValue = "0") final int page,
                                            @RequestParam(defaultValue = "10") final int size,
-                                           @RequestParam(defaultValue = "") final List<String> sort,
-                                           @QuerydslPredicate(root = Review.class, bindings = ReviewRepository.class) final Predicate predicate) {
-        return reviewService.findReviews(page, size, sort, predicate);
+                                           @RequestParam(defaultValue = "") final List<String> sort) {
+        return reviewService.findReviews(page, size, sort);
     }
 
     @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE, consumes = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)

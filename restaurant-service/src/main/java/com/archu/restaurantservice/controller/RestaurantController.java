@@ -32,9 +32,8 @@ public class RestaurantController {
     @GetMapping(produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)
     public Page<RestaurantResponse> getRestaurants(@RequestParam(defaultValue = "0") final int page,
                                                    @RequestParam(defaultValue = "10") final int size,
-                                                   @RequestParam(defaultValue = "") final List<String> sort,
-                                                   @QuerydslPredicate(root = Restaurant.class, bindings = RestaurantRepository.class) final Predicate predicate) {
-        return restaurantService.findRestaurants(page, size, sort, predicate);
+                                                   @RequestParam(defaultValue = "") final List<String> sort) {
+        return restaurantService.findRestaurants(page, size, sort);
     }
 
     @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE, consumes = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)

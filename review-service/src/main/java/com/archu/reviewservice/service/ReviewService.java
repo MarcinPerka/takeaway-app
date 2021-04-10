@@ -11,7 +11,7 @@ public interface ReviewService {
 
     ReviewResponse findReviewById(final String id);
 
-    Page<ReviewResponse> findReviews(final int page, final int size, final List<String> sort, final Predicate predicate);
+    Page<ReviewResponse> findReviews(final int page, final int size, final List<String> sort);
 
     ReviewResponse createReview(final ReviewRequest reviewRequest);
 

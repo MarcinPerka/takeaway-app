@@ -30,9 +30,9 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public Page<ReviewResponse> findReviews(final int page, final int size, final List<String> sort, final Predicate predicate) {
+    public Page<ReviewResponse> findReviews(final int page, final int size, final List<String> sort) {
         final var pageRequest = PagingAndSortingRequest.of(page, size, sort);
-        return reviewRepository.findAll(predicate, pageRequest).map(reviewConverter::createFrom);
+        return reviewRepository.findAll(pageRequest).map(reviewConverter::createFrom);
     }
 
     @Override

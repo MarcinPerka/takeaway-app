@@ -31,9 +31,9 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public Page<RestaurantResponse> findRestaurants(final int page, final int size, final List<String> sort, final Predicate predicate) {
+    public Page<RestaurantResponse> findRestaurants(final int page, final int size, final List<String> sort) {
         final var pageRequest = PagingAndSortingRequest.of(page, size, sort);
-        return restaurantRepository.findAll(predicate, pageRequest).map(restaurantConverter::createFrom);
+        return restaurantRepository.findAll(pageRequest).map(restaurantConverter::createFrom);
     }
 
     @Override

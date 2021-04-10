@@ -11,7 +11,7 @@ public interface RestaurantService {
 
     RestaurantResponse findRestaurantById(final String id);
 
-    Page<RestaurantResponse> findRestaurants(final int page, final int size, final List<String> sort, final Predicate predicate);
+    Page<RestaurantResponse> findRestaurants(final int page, final int size, final List<String> sort);
 
     RestaurantResponse createRestaurant(final RestaurantRequest restaurantRequest);
 

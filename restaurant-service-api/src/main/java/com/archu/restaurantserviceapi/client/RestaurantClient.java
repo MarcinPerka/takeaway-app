@@ -19,8 +19,7 @@ public interface RestaurantClient {
     @GetMapping
     Page<RestaurantResponse> getRestaurants(@RequestParam final int page,
                                             @RequestParam final int size,
-                                            @RequestParam final List<String> sort,
-                                            Predicate predicate);
+                                            @RequestParam final List<String> sort);
 
     @PutMapping("/{id}")
     RestaurantResponse updateRestaurant(@PathVariable final String id, @RequestBody final RestaurantRequest restaurantRequest);

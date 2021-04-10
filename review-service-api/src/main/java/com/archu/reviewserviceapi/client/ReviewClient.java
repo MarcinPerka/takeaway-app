@@ -19,8 +19,7 @@ public interface ReviewClient {
     @GetMapping
     Page<ReviewResponse> getReviews(@RequestParam final int page,
                                     @RequestParam final int size,
-                                    @RequestParam final List<String> sort,
-                                    Predicate predicate);
+                                    @RequestParam final List<String> sort);
 
     @PutMapping("/{id}")
     ReviewResponse updateReview(@PathVariable final String id, @RequestBody final ReviewRequest reviewRequest);

@@ -6,6 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.4.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.archu</groupId>
     <artifactId>review-service-api</artifactId>
@@ -18,6 +19,8 @@
         <maven.compiler.target>11</maven.compiler.target>
         <spring-cloud.version>2020.0.1</spring-cloud.version>
         <lombok.version>1.18.18</lombok.version>
+        <takeaway-common.version>0.0.1-SNAPSHOT</takeaway-common.version>
+        <takeaway-common-spring.version>0.0.1-SNAPSHOT</takeaway-common-spring.version>
     </properties>
 
     <dependencyManagement>
@@ -51,12 +54,12 @@
         <dependency>
             <groupId>com.archu</groupId>
             <artifactId>takeaway-common</artifactId>
-            <version>${version}</version>
+            <version>${takeaway-common.version}</version>
         </dependency>
         <dependency>
             <groupId>com.archu</groupId>
             <artifactId>takeaway-common-spring</artifactId>
-            <version>${version}</version>
+            <version>${takeaway-common-spring.version}</version>
         </dependency>
     </dependencies>
 

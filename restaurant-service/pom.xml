@@ -6,6 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.4.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.archu</groupId>
     <artifactId>restaurant-service</artifactId>
@@ -20,6 +21,9 @@
         <spring-boot-admin.version>2.4.0</spring-boot-admin.version>
         <lombok.version>1.18.18</lombok.version>
         <query-dsl.version>4.4.0</query-dsl.version>
+        <takeaway-common.version>0.0.1-SNAPSHOT</takeaway-common.version>
+        <takeaway-common-spring.version>0.0.1-SNAPSHOT</takeaway-common-spring.version>
+        <restaurant-service-api.version>0.0.1-SNAPSHOT</restaurant-service-api.version>
     </properties>
 
     <dependencyManagement>
@@ -78,17 +82,17 @@
         <dependency>
             <groupId>com.archu</groupId>
             <artifactId>takeaway-common</artifactId>
-            <version>${version}</version>
+            <version>${takeaway-common.version}</version>
         </dependency>
         <dependency>
             <groupId>com.archu</groupId>
             <artifactId>takeaway-common-spring</artifactId>
-            <version>${version}</version>
+            <version>${takeaway-common-spring.version}</version>
         </dependency>
         <dependency>
             <groupId>com.archu</groupId>
             <artifactId>restaurant-service-api</artifactId>
-            <version>${version}</version>
+            <version>${restaurant-service-api.version}</version>
         </dependency>
         <dependency>
             <groupId>com.querydsl</groupId>
@@ -135,12 +139,12 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
-                            <processor>org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor</processor>
+                            <processor>org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor
+                            </processor>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-
 </project>

@@ -6,7 +6,6 @@
     <artifactId>takeaway-common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>takeaway-common</name>
-    <packaging>jar</packaging>
 
     <properties>
         <java.version>11</java.version>

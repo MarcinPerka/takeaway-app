@@ -16,6 +16,11 @@ zuul:
       url: http://localhost:9010
       stripPrefix: false
       serviceId: restaurant-service
+    order-service:
+      path: /orders/**
+      url: http://localhost:9020
+      stripPrefix: false
+      serviceId: order-service
     review-service:
       path: /reviews/**
       url: http://localhost:9030

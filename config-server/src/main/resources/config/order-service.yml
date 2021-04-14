@@ -1,0 +1,10 @@
+server:
+  servlet:
+    context-path: /api/orders
+  port: 9020
+spring:
+  data:
+    mongodb:
+      host: localhost
+      database: orderDB
+      port: 27017

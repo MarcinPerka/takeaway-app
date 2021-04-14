@@ -1,16 +1,12 @@
 package com.archu.restaurantservice.controller;
 
-import com.archu.restaurantservice.domain.Restaurant;
-import com.archu.restaurantservice.repository.RestaurantRepository;
 import com.archu.restaurantservice.service.RestaurantService;
 import com.archu.restaurantserviceapi.dto.RestaurantRequest;
 import com.archu.restaurantserviceapi.dto.RestaurantResponse;
 import com.archu.takeawaycommonspring.apiversion.MediaType;
-import com.querydsl.core.types.Predicate;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
-import org.springframework.data.querydsl.binding.QuerydslPredicate;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

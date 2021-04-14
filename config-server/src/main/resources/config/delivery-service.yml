@@ -1,0 +1,10 @@
+server:
+  servlet:
+    context-path: /api/deliveries
+  port: 9040
+spring:
+  data:
+    mongodb:
+      host: localhost
+      database: deliveryDB
+      port: 27017

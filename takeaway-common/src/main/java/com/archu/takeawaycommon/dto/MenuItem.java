@@ -1,4 +1,4 @@
-package com.archu.restaurantserviceapi.dto;
+package com.archu.takeawaycommon.dto;
 
 import com.archu.takeawaycommon.dto.Money;
 import lombok.*;

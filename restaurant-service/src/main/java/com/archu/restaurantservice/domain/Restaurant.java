@@ -1,8 +1,8 @@
 package com.archu.restaurantservice.domain;
 
-import com.archu.restaurantserviceapi.dto.Cuisine;
-import com.archu.restaurantserviceapi.dto.Menu;
-import com.archu.restaurantserviceapi.dto.Shipping;
+import com.archu.takeawaycommon.dto.Cuisine;
+import com.archu.takeawaycommon.dto.Menu;
+import com.archu.takeawaycommon.dto.Shipping;
 import com.archu.takeawaycommon.dto.Location;
 import com.archu.takeawaycommonspring.base.domain.BaseEntity;
 import lombok.AccessLevel;

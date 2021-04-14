@@ -22,6 +22,8 @@
         <lombok.version>1.18.18</lombok.version>
         <query-dsl.version>4.4.0</query-dsl.version>
         <takeaway-common-spring.version>0.0.1-SNAPSHOT</takeaway-common-spring.version>
+        <order-service-api.version>0.0.1-SNAPSHOT</order-service-api.version>
+        <takeaway-common.version>0.0.1-SNAPSHOT</takeaway-common.version>
     </properties>
 
     <dependencyManagement>
@@ -91,6 +93,16 @@
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-apt</artifactId>
             <version>${query-dsl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.archu</groupId>
+            <artifactId>order-service-api</artifactId>
+            <version>${order-service-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.archu</groupId>
+            <artifactId>takeaway-common</artifactId>
+            <version>${takeaway-common.version}</version>
         </dependency>
     </dependencies>
 

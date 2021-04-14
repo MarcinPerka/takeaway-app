@@ -1,4 +1,4 @@
-package com.archu.restaurantserviceapi.dto;
+package com.archu.takeawaycommon.dto;
 
 public enum Cuisine {
     AMERICAN, ARAB, BURGERS, CHINESE, DESSERTS, DUMPLINGS, FALAFEL, GEORGIAN,

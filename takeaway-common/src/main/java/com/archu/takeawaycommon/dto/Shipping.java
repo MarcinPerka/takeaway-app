@@ -1,4 +1,4 @@
-package com.archu.restaurantserviceapi.dto;
+package com.archu.takeawaycommon.dto;
 
 public enum Shipping {
     DELIVERY, PICKUP

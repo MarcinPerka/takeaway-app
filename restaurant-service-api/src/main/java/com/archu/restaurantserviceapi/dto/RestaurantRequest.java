@@ -1,6 +1,9 @@
 package com.archu.restaurantserviceapi.dto;
 
+import com.archu.takeawaycommon.dto.Cuisine;
 import com.archu.takeawaycommon.dto.Location;
+import com.archu.takeawaycommon.dto.Menu;
+import com.archu.takeawaycommon.dto.Shipping;
 import com.archu.takeawaycommonspring.base.domain.BaseRequest;
 import lombok.*;
 

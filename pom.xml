@@ -16,6 +16,8 @@
         <module>restaurant-service-api</module>
         <module>review-service</module>
         <module>review-service-api</module>
+        <module>order-service</module>
+        <module>order-service-api</module>
         <module>admin-server</module>
         <module>gateway-service</module>
         <module>takeaway-common</module>

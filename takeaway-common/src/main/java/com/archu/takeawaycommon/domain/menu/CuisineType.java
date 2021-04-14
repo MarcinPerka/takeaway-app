@@ -1,6 +1,6 @@
-package com.archu.takeawaycommon.dto;
+package com.archu.takeawaycommon.domain.menu;
 
-public enum Cuisine {
+public enum CuisineType {
     AMERICAN, ARAB, BURGERS, CHINESE, DESSERTS, DUMPLINGS, FALAFEL, GEORGIAN,
     GYROS, INDIAN, INTERNATIONAL, ITALIAN, JAPANESE, KEBAB, LUNCH, MEXICAN, PANCAKES,
     PASTA, PIZZA, POLISH, PORK, POULTRY, SALADS, SANDWICHES, SEAFOOD, SNACKS,

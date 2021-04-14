@@ -1,14 +1,13 @@
-package com.archu.orderservice.domain;
+package com.archu.takeawaycommon.domain.payment;
 
 import lombok.*;
-
-import java.util.Set;
 
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE, staticName = "of")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
-public class OrderLineItems {
+public class PaymentDetails {
 
-    private Set<OrderLineItem> orderLineItems;
+    private PaymentType type;
+
 }

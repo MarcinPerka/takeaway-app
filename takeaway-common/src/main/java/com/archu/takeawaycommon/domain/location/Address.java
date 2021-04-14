@@ -1,8 +1,7 @@
-package com.archu.takeawaycommon.dto;
+package com.archu.takeawaycommon.domain.location;
 
 import lombok.*;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -10,18 +9,21 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor(access = AccessLevel.PRIVATE, staticName = "of")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
-public class Location {
-
-    @NotBlank
-    private String city;
+public class Address {
 
     @NotNull
     private Country country;
 
-    @Valid
-    private Coordinates coordinates;
-
     @NotBlank
     private String streetAddress;
+
+    @NotBlank
+    private String city;
+
+    @NotBlank
+    private String state;
+
+    @NotBlank
+    private String zip;
 
 }

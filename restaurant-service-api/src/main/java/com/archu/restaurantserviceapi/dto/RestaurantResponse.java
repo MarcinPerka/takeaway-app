@@ -1,9 +1,9 @@
 package com.archu.restaurantserviceapi.dto;
 
-import com.archu.takeawaycommon.dto.Cuisine;
-import com.archu.takeawaycommon.dto.Location;
-import com.archu.takeawaycommon.dto.Menu;
-import com.archu.takeawaycommon.dto.Shipping;
+import com.archu.takeawaycommon.domain.menu.CuisineType;
+import com.archu.takeawaycommon.domain.location.Location;
+import com.archu.takeawaycommon.domain.menu.Menu;
+import com.archu.takeawaycommon.domain.shipping.ShippingType;
 import com.archu.takeawaycommonspring.base.domain.BaseResponse;
 import lombok.*;
 
@@ -23,9 +23,9 @@ public class RestaurantResponse extends BaseResponse {
 
     private String name;
 
-    private Set<Cuisine> cuisineTypes;
+    private Set<CuisineType> cuisineTypes;
 
-    private Set<Shipping> shippingTypes;
+    private Set<ShippingType> shippingTypes;
 
     private Menu menu;
 

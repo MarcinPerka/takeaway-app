@@ -1,6 +1,6 @@
-package com.archu.takeawaycommon.dto;
+package com.archu.takeawaycommon.domain.menu;
 
-import com.archu.takeawaycommon.dto.Money;
+import com.archu.takeawaycommon.domain.general.Money;
 import lombok.*;
 
 import javax.validation.Valid;

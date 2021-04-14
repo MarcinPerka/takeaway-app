@@ -1,18 +1,19 @@
-package com.archu.takeawaycommon.dto;
+package com.archu.takeawaycommon.domain.location;
 
 import lombok.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
-import java.util.List;
 
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE, staticName = "of")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
-public class Menu {
+public class Location {
 
-    @NotEmpty
-    private List<@Valid MenuItem> items;
+    @Valid
+    private Address address;
+
+    @Valid
+    private Coordinates coordinates;
 
 }

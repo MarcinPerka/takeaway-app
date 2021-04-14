@@ -1,4 +1,4 @@
-package com.archu.takeawaycommon.dto;
+package com.archu.takeawaycommon.domain.general;
 
 import lombok.*;
 

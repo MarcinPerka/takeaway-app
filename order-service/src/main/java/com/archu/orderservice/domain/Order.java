@@ -1,5 +1,7 @@
 package com.archu.orderservice.domain;
 
+import com.archu.takeawaycommon.domain.payment.PaymentDetails;
+import com.archu.takeawaycommon.domain.shipping.ShippingDetails;
 import com.archu.takeawaycommonspring.base.domain.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -22,4 +24,8 @@ public class Order extends BaseEntity {
     private String customerId;
 
     private OrderLineItems orderLineItems;
+
+    private PaymentDetails paymentDetails;
+
+    private ShippingDetails shippingDetails;
 }

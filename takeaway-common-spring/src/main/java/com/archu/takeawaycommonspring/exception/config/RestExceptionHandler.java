@@ -1,6 +1,6 @@
 package com.archu.takeawaycommonspring.exception.config;
 
-import com.archu.takeawaycommonspring.exception.BadRequestException;
+import com.archu.takeawaycommonspring.exception.types.BadRequestException;
 import com.archu.takeawaycommonspring.exception.response.ApiError;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;

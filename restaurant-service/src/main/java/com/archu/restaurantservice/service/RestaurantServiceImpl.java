@@ -1,17 +1,19 @@
 package com.archu.restaurantservice.service;
 
 import com.archu.restaurantservice.converter.RestaurantConverter;
+import com.archu.restaurantservice.domain.Restaurant;
 import com.archu.restaurantservice.repository.RestaurantRepository;
 import com.archu.restaurantserviceapi.model.RestaurantRequest;
 import com.archu.restaurantserviceapi.model.RestaurantResponse;
 import com.archu.takeawaycommonspring.base.page.PagingAndSortingRequest;
-import com.archu.takeawaycommonspring.exception.ResourceNotFoundException;
+import com.archu.takeawaycommonspring.exception.types.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -24,9 +26,8 @@ public class RestaurantServiceImpl implements RestaurantService {
     private final RestaurantConverter restaurantConverter;
 
     @Override
-    public RestaurantResponse findRestaurantById(final String id) {
-        return restaurantRepository.findById(id).map(restaurantConverter::createFrom)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Restaurant with id %s not found", id)));
+    public Optional<RestaurantResponse> findRestaurantById(final String id) {
+        return restaurantRepository.findById(id).map(restaurantConverter::createFrom);
     }
 
     @Override
@@ -44,7 +45,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public RestaurantResponse updateRestaurant(final String id, final RestaurantRequest restaurantRequest) {
         final var restaurantToUpdate = restaurantRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Restaurant with id %s not found", id)));
+                .orElseThrow(() -> new ResourceNotFoundException(Restaurant.class, "id", id));
         return restaurantConverter.createFrom(restaurantRepository.save(restaurantConverter.updateEntity(restaurantToUpdate, restaurantRequest)));
     }
 }

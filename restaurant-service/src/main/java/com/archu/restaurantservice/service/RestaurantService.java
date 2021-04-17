@@ -5,10 +5,11 @@ import com.archu.restaurantserviceapi.model.RestaurantResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface RestaurantService {
 
-    RestaurantResponse findRestaurantById(final String id);
+    Optional<RestaurantResponse> findRestaurantById(final String id);
 
     Page<RestaurantResponse> findRestaurants(final int page, final int size, final List<String> sort);
 

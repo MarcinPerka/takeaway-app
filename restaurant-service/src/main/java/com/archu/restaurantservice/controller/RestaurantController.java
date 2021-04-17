@@ -1,9 +1,11 @@
 package com.archu.restaurantservice.controller;
 
+import com.archu.restaurantservice.domain.Restaurant;
 import com.archu.restaurantservice.service.RestaurantService;
 import com.archu.restaurantserviceapi.model.RestaurantRequest;
 import com.archu.restaurantserviceapi.model.RestaurantResponse;
 import com.archu.takeawaycommonspring.apiversion.MediaType;
+import com.archu.takeawaycommonspring.exception.types.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -22,7 +24,7 @@ public class RestaurantController {
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)
     public RestaurantResponse getRestaurantById(@PathVariable final String id) {
-        return restaurantService.findRestaurantById(id);
+        return restaurantService.findRestaurantById(id).orElseThrow(() -> new ResourceNotFoundException(Restaurant.class, "id", id));
     }
 
     @GetMapping(produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)

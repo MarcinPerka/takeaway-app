@@ -1,9 +1,11 @@
 package com.archu.reviewservice.controller;
 
+import com.archu.reviewservice.domain.Review;
 import com.archu.reviewservice.service.ReviewService;
 import com.archu.reviewserviceapi.model.ReviewRequest;
 import com.archu.reviewserviceapi.model.ReviewResponse;
 import com.archu.takeawaycommonspring.apiversion.MediaType;
+import com.archu.takeawaycommonspring.exception.types.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -22,7 +24,7 @@ public class ReviewController {
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)
     public ReviewResponse getReviewById(@PathVariable final String id) {
-        return reviewService.findReviewById(id);
+        return reviewService.findReviewById(id).orElseThrow(() -> new ResourceNotFoundException(Review.class, "id", id));
     }
 
 

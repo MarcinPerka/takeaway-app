@@ -5,10 +5,11 @@ import com.archu.orderserviceapi.model.OrderResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface OrderService {
 
-    OrderResponse findOrderById(final String id);
+    Optional<OrderResponse> findOrderById(final String id);
 
     Page<OrderResponse> findOrders(final int page, final int size, final List<String> sort);
 

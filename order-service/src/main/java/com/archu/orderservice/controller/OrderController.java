@@ -1,9 +1,11 @@
 package com.archu.orderservice.controller;
 
+import com.archu.orderservice.domain.Order;
 import com.archu.orderservice.service.OrderService;
 import com.archu.orderserviceapi.model.OrderRequest;
 import com.archu.orderserviceapi.model.OrderResponse;
 import com.archu.takeawaycommonspring.apiversion.MediaType;
+import com.archu.takeawaycommonspring.exception.types.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -22,7 +24,7 @@ public class OrderController {
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)
     public OrderResponse getOrderById(@PathVariable final String id) {
-        return orderService.findOrderById(id);
+        return orderService.findOrderById(id).orElseThrow(() -> new ResourceNotFoundException(Order.class, "id", id));
     }
 
     @GetMapping(produces = MediaType.APPLICATION_TAKEAWAY_V1_JSON_VALUE)

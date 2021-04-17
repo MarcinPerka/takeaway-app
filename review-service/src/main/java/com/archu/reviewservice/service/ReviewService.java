@@ -5,10 +5,11 @@ import com.archu.reviewserviceapi.model.ReviewResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ReviewService {
 
-    ReviewResponse findReviewById(final String id);
+    Optional<ReviewResponse> findReviewById(final String id);
 
     Page<ReviewResponse> findReviews(final int page, final int size, final List<String> sort);
 

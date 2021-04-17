@@ -22,7 +22,7 @@ public final class PagingAndSortingRequest {
         return PageRequest.of(page, size, sort);
     }
 
-    private static Sort.Order getOrder(String value) {
+    private static Sort.Order getOrder(final String value) {
         final var leadingElement = value.charAt(0);
         return new Sort.Order(getDirection(leadingElement), getProperty(value, leadingElement));
     }

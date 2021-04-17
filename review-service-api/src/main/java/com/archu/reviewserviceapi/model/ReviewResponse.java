@@ -1,4 +1,4 @@
-package com.archu.reviewserviceapi.dto;
+package com.archu.reviewserviceapi.model;
 
 import com.archu.takeawaycommonspring.base.domain.BaseResponse;
 import lombok.*;

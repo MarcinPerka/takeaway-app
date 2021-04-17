@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE, staticName = "of")
@@ -16,5 +17,6 @@ public class MenuItem {
     private String name;
 
     @Valid
+    @NotNull
     private Money price;
 }

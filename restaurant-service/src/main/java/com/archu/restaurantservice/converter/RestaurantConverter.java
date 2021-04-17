@@ -1,8 +1,8 @@
 package com.archu.restaurantservice.converter;
 
 import com.archu.restaurantservice.domain.Restaurant;
-import com.archu.restaurantserviceapi.dto.RestaurantRequest;
-import com.archu.restaurantserviceapi.dto.RestaurantResponse;
+import com.archu.restaurantserviceapi.model.RestaurantRequest;
+import com.archu.restaurantserviceapi.model.RestaurantResponse;
 import com.archu.takeawaycommonspring.base.domain.BaseConverter;
 import org.springframework.stereotype.Component;
 

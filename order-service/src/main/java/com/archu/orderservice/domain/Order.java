@@ -1,5 +1,7 @@
 package com.archu.orderservice.domain;
 
+import com.archu.orderserviceapi.model.OrderLineItems;
+import com.archu.orderserviceapi.model.OrderState;
 import com.archu.takeawaycommon.domain.payment.PaymentDetails;
 import com.archu.takeawaycommon.domain.shipping.ShippingDetails;
 import com.archu.takeawaycommonspring.base.domain.BaseEntity;

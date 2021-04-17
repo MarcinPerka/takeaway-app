@@ -1,4 +1,4 @@
-package com.archu.restaurantserviceapi.dto;
+package com.archu.restaurantserviceapi.model;
 
 import com.archu.takeawaycommon.domain.menu.CuisineType;
 import com.archu.takeawaycommon.domain.location.Location;
@@ -32,9 +32,11 @@ public class RestaurantRequest extends BaseRequest {
     private Set<@NotNull ShippingType> shippingTypes;
 
     @Valid
+    @NotNull
     private Menu menu;
 
     @Valid
+    @NotNull
     private Location location;
 
 }

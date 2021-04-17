@@ -1,4 +1,4 @@
-package com.archu.orderservice.domain;
+package com.archu.orderserviceapi.model;
 
 public enum OrderState {
     APPROVAL_PENDING,

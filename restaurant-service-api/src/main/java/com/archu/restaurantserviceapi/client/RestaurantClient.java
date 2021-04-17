@@ -1,13 +1,11 @@
 package com.archu.restaurantserviceapi.client;
 
-import com.archu.restaurantserviceapi.dto.RestaurantRequest;
-import com.archu.restaurantserviceapi.dto.RestaurantResponse;
-import com.querydsl.core.types.Predicate;
+import com.archu.restaurantserviceapi.model.RestaurantRequest;
+import com.archu.restaurantserviceapi.model.RestaurantResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @FeignClient("restaurant-service")

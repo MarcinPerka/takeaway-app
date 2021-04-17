@@ -52,7 +52,7 @@ public interface StringQuerydslBinderCustomizer<T extends EntityPath<?>> extends
      * SimpleExpression.eq(java.lang.Object)
      */
     private BooleanBuilder getPredicateForStringType(final Path<String> path, final Collection<? extends String> values) {
-        var predicate = new BooleanBuilder();
+        final var predicate = new BooleanBuilder();
         values.forEach(
                 input -> {
                     final var parts = input.split(":");

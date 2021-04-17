@@ -1,7 +1,9 @@
-package com.archu.orderservice.domain;
+package com.archu.orderserviceapi.model;
 
 import lombok.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Getter
@@ -10,5 +12,6 @@ import java.util.Set;
 @ToString
 public class OrderLineItems {
 
-    private Set<OrderLineItem> orderLineItems;
+    @NotNull
+    private Set<@Valid OrderLineItem> orderLineItems;
 }

@@ -1,8 +1,7 @@
 package com.archu.reviewservice.service;
 
-import com.archu.reviewserviceapi.dto.ReviewRequest;
-import com.archu.reviewserviceapi.dto.ReviewResponse;
-import com.querydsl.core.types.Predicate;
+import com.archu.reviewserviceapi.model.ReviewRequest;
+import com.archu.reviewserviceapi.model.ReviewResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

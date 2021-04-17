@@ -1,4 +1,4 @@
-package com.archu.restaurantserviceapi.dto;
+package com.archu.restaurantserviceapi.model;
 
 import com.archu.takeawaycommon.domain.menu.CuisineType;
 import com.archu.takeawaycommon.domain.location.Location;

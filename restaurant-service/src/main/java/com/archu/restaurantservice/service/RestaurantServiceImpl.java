@@ -2,11 +2,10 @@ package com.archu.restaurantservice.service;
 
 import com.archu.restaurantservice.converter.RestaurantConverter;
 import com.archu.restaurantservice.repository.RestaurantRepository;
-import com.archu.restaurantserviceapi.dto.RestaurantRequest;
-import com.archu.restaurantserviceapi.dto.RestaurantResponse;
+import com.archu.restaurantserviceapi.model.RestaurantRequest;
+import com.archu.restaurantserviceapi.model.RestaurantResponse;
 import com.archu.takeawaycommonspring.base.page.PagingAndSortingRequest;
 import com.archu.takeawaycommonspring.exception.ResourceNotFoundException;
-import com.querydsl.core.types.Predicate;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -38,13 +37,13 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public RestaurantResponse createRestaurant(final RestaurantRequest restaurantRequest) {
-        var restaurant = restaurantConverter.createFrom(restaurantRequest);
+        final var restaurant = restaurantConverter.createFrom(restaurantRequest);
         return restaurantConverter.createFrom(restaurantRepository.save(restaurant));
     }
 
     @Override
     public RestaurantResponse updateRestaurant(final String id, final RestaurantRequest restaurantRequest) {
-        var restaurantToUpdate = restaurantRepository.findById(id)
+        final var restaurantToUpdate = restaurantRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(String.format("Restaurant with id %s not found", id)));
         return restaurantConverter.createFrom(restaurantRepository.save(restaurantConverter.updateEntity(restaurantToUpdate, restaurantRequest)));
     }

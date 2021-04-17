@@ -2,11 +2,10 @@ package com.archu.reviewservice.service;
 
 import com.archu.reviewservice.converter.ReviewConverter;
 import com.archu.reviewservice.repository.ReviewRepository;
-import com.archu.reviewserviceapi.dto.ReviewRequest;
-import com.archu.reviewserviceapi.dto.ReviewResponse;
+import com.archu.reviewserviceapi.model.ReviewRequest;
+import com.archu.reviewserviceapi.model.ReviewResponse;
 import com.archu.takeawaycommonspring.base.page.PagingAndSortingRequest;
 import com.archu.takeawaycommonspring.exception.ResourceNotFoundException;
-import com.querydsl.core.types.Predicate;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

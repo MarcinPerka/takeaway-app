@@ -1,16 +1,12 @@
 package com.archu.reviewservice.controller;
 
-import com.archu.reviewservice.domain.Review;
-import com.archu.reviewservice.repository.ReviewRepository;
 import com.archu.reviewservice.service.ReviewService;
-import com.archu.reviewserviceapi.dto.ReviewRequest;
-import com.archu.reviewserviceapi.dto.ReviewResponse;
+import com.archu.reviewserviceapi.model.ReviewRequest;
+import com.archu.reviewserviceapi.model.ReviewResponse;
 import com.archu.takeawaycommonspring.apiversion.MediaType;
-import com.querydsl.core.types.Predicate;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
-import org.springframework.data.querydsl.binding.QuerydslPredicate;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

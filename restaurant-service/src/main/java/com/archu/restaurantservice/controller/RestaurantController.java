@@ -1,8 +1,8 @@
 package com.archu.restaurantservice.controller;
 
 import com.archu.restaurantservice.service.RestaurantService;
-import com.archu.restaurantserviceapi.dto.RestaurantRequest;
-import com.archu.restaurantserviceapi.dto.RestaurantResponse;
+import com.archu.restaurantserviceapi.model.RestaurantRequest;
+import com.archu.restaurantserviceapi.model.RestaurantResponse;
 import com.archu.takeawaycommonspring.apiversion.MediaType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

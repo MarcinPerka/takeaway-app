@@ -1,8 +1,8 @@
 package com.archu.reviewserviceapi.client;
 
 
-import com.archu.reviewserviceapi.dto.ReviewRequest;
-import com.archu.reviewserviceapi.dto.ReviewResponse;
+import com.archu.reviewserviceapi.model.ReviewRequest;
+import com.archu.reviewserviceapi.model.ReviewResponse;
 import com.querydsl.core.types.Predicate;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.domain.Page;

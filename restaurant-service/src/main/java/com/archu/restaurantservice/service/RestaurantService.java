@@ -1,8 +1,7 @@
 package com.archu.restaurantservice.service;
 
-import com.archu.restaurantserviceapi.dto.RestaurantRequest;
-import com.archu.restaurantserviceapi.dto.RestaurantResponse;
-import com.querydsl.core.types.Predicate;
+import com.archu.restaurantserviceapi.model.RestaurantRequest;
+import com.archu.restaurantserviceapi.model.RestaurantResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

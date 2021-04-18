@@ -11,7 +11,7 @@ public abstract class BasePredicate<T> {
 
     private final SearchCriteria searchCriteria;
 
-    abstract BooleanExpression getPredicate(final Class<T> tClass, final String collectionName);
+    public abstract BooleanExpression getPredicate(final Class<T> tClass, final String collectionName);
 
     protected BooleanExpression getStringPredicate(final StringPath stringPath, final String value) {
         switch (searchCriteria.getSearchOperation()) {
@@ -66,7 +66,7 @@ public abstract class BasePredicate<T> {
         }
     }
 
-    protected BooleanExpression getInstantPredicate(final DatePath<Instant> datePath, final Instant value) {
+    protected BooleanExpression getInstantPredicate(final DateTimePath<Instant> datePath, final Instant value) {
         switch (searchCriteria.getSearchOperation()) {
             case EQUALITY:
                 return datePath.eq(value);

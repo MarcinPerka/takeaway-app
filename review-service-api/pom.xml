@@ -20,6 +20,7 @@
         <spring-cloud.version>2020.0.1</spring-cloud.version>
         <lombok.version>1.18.18</lombok.version>
         <takeaway-common.version>0.0.1-SNAPSHOT</takeaway-common.version>
+        <takeaway-common-spring.version>0.0.1-SNAPSHOT</takeaway-common-spring.version>
     </properties>
 
     <dependencyManagement>
@@ -54,6 +55,11 @@
             <groupId>com.archu</groupId>
             <artifactId>takeaway-common</artifactId>
             <version>${takeaway-common.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.archu</groupId>
+            <artifactId>takeaway-common-spring</artifactId>
+            <version>${takeaway-common-spring.version}</version>
         </dependency>
     </dependencies>
 

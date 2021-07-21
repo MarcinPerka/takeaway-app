@@ -3,7 +3,6 @@ package com.archu.reviewserviceapi.client;
 
 import com.archu.reviewserviceapi.model.ReviewRequest;
 import com.archu.reviewserviceapi.model.ReviewResponse;
-import com.querydsl.core.types.Predicate;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
